@@ -1,0 +1,15 @@
+name: Example frequency rule
+type: frequency
+index: logstash-*
+num_events: 50
+timeframe:
+  hours: 4
+# For more info: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl.html
+filter:
+- term:
+    eventid: cowrie.command.input
+
+# (Required)
+# The alert is use when a match is found
+alert:
+- "debug"

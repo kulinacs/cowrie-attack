@@ -1,0 +1,18 @@
+---
+version: '3'
+services:
+  elastalert:
+    image: bitsensor/elastalert
+    networks:
+      - alertnet
+    ports:
+      - 3030:3030
+    restart: always
+    volumes:
+      - ./config/elastalert.yaml:/opt/elastalert/config.yaml
+      - ./config/config.json:/opt/elastalert-server/config/config.json
+      - ./rules:/opt/elastalert/rules
+      - ./rule_templates:/opt/elastalert/rule_templates
+networks:
+  alertnet:
+    external: true

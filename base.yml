@@ -1,0 +1,41 @@
+---
+version: '3'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.6.8
+    networks:
+      - alertnet
+    ports:
+      - 9200:9200
+  logstash:
+    image: docker.elastic.co/logstash/logstash:5.6.8
+    networks:
+      - alertnet
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+  kibana:
+    image: docker.elastic.co/kibana/kibana:5.6.8
+    networks:
+      - alertnet
+    ports:
+      - 5601:5601
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:5.6.8
+    networks:
+      - alertnet
+    volumes:
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - cowrie-log:/opt/cowrie
+  cowrie:
+    image: cowrie/cowrie
+    networks:
+      - alertnet
+    ports:
+      - 2222:2222
+    volumes:
+      - cowrie-log:/cowrie/cowrie-git/log
+volumes:
+  cowrie-log:
+networks:
+  alertnet:
+    external: true

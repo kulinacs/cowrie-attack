@@ -1,0 +1,13 @@
+name: "cowrie"
+filebeat.prospectors:
+- paths:
+   - /opt/cowrie/cowrie.json
+  input_type: log
+  json.add_error_key: true
+  json.keys_under_root: true
+
+setup.kibana:
+  host: "kibana:5601"
+  
+output.logstash:
+  hosts: ["logstash:5044"]
