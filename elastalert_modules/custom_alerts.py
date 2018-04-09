@@ -11,7 +11,7 @@ class MITREAttack(Alerter):
 
     def get_info(self):
         '''This information is logged into ElasticSearch for us to use'''
-        return {'type': 'attack',
+        return {'type': 'MITREAttack',
                 'attack_tactic': self.rule['attack_tactic'],
                 'attack_name': self.rule['attack_name'],
                 'attack_id': self.rule['attack_id']}

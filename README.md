@@ -42,6 +42,19 @@ Run rule
 
 https://attack.mitre.org/wiki/Linux_Technique_Matrix
 
+## Rule Alerting
+
+ElastAlert will write back alerts to `index: elastalert_status` with the `_type: elastalert` with all information the Alert provides. As such, we created a custom alert, `MITREAttack` to put this information into ElasticSearch.
+
+To use the `MITREAttack` alert, the following keys should be used.
+
+```
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic:
+attack_name: 
+attack_id:
+```
+
 ## Nick's Straight Forward Rules
 
 ### User enumeration
