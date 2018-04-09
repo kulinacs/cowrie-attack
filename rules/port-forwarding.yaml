@@ -1,0 +1,13 @@
+name: Port Forwarding
+type: any
+index: logstash-*
+
+# For more info: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl.html
+filter:
+- match:
+    eventid: cowrie.direct
+
+# (Required)
+# The alert is use when a match is found
+alert:
+- "debug"
