@@ -16,7 +16,7 @@ When the stack comes up, login to Kibana <http://127.0.0.1:5601> Username: `elas
 
 Create an index `logstash-*`
 
-Start up ElastAlert `sudo docker-compose -f alert.yml up`
+Start up ElastAlert `sudo docker-compose -f alert.yaml up`
 
 ## Testing a rule
 
