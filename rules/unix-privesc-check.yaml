@@ -1,13 +1,13 @@
-name: Unix PrivEsc Check Script
+# Detects the remote copy of unix-privesc-check, a standard privilege escalation attack script
+name: unix-privesc-check remote copy
 type: any
 index: logstash-*
 
-# For more info: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl.html
 filter:
 - term:
     shasum: 565b845115a88c7c566742e890105ddae59a04ff396293813395021db9c5865e
 
-# (Required)
-# The alert is use when a match is found
-alert:
-- "debug"
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic: "Command and Control"
+attack_name: "Remote File Copy"
+attack_id: "T1105"

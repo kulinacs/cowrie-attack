@@ -1,18 +1,12 @@
-# Tactic: Discovery
-# Name: System Information Discovery
-# ID: 	T1082
 # Enumerates current firewall rules, allowing an attacker to better understand the network constraints on a box
 name: Firewall Enumeration
 type: any
 index: logstash-*
 
-# For more info: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl.html
 filter:
 - match:
     message: iptables
 
-# (Required)
-# The alert is use when a match is found
 alert: "elastalert_modules.custom_alerts.MITREAttack"
 attack_tactic: "Discovery"
 attack_name: "System Information Discovery"

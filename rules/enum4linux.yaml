@@ -1,13 +1,13 @@
-name: enum4linux Script
+# Detects the remote copy of enum4linux, a standard enumeration attack script
+name: enum4linux remote copy
 type: any
 index: logstash-*
 
-# For more info: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl.html
 filter:
 - term:
     shasum: 518cde096ddc75eb3147b2f20437a1af3758e0386698a588bfbe78749058d471
 
-# (Required)
-# The alert is use when a match is found
-alert:
-- "debug"
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic: "Command and Control"
+attack_name: "Remote File Copy"
+attack_id: "T1105"
