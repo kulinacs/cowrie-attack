@@ -1,3 +1,7 @@
+# Tactic: Discovery
+# Name: System Information Discovery
+# ID: 	T1082
+# Enumerates current firewall rules, allowing an attacker to better understand the network constraints on a box
 name: Firewall Enumeration
 type: any
 index: logstash-*
