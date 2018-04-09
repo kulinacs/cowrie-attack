@@ -13,6 +13,7 @@ services:
       - ./config/config.json:/opt/elastalert-server/config/config.json
       - ./rules:/opt/elastalert/rules
       - ./rule_templates:/opt/elastalert/rule_templates
+      - ./elastalert_modules/custom_alerts.py:/opt/elastalert/elastalert_modules/custom_alerts.py
 networks:
   alertnet:
     external: true

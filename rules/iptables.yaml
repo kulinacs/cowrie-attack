@@ -13,5 +13,7 @@ filter:
 
 # (Required)
 # The alert is use when a match is found
-alert:
-- "debug"
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic: "Discovery"
+attack_name: "System Information Discovery"
+attack_id: "T1082"
