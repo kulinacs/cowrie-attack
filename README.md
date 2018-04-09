@@ -10,6 +10,8 @@ Increase the max mem count `sudo sysctl -w vm.max_map_count=262144`
 
 Start up the Honeypot and Elastic Stack `sudo docker-compose -f base.yml up` 
 
+You need to generate logs before you can create an index. Do this by logging in to the honepot by: `ssh root@127.0.0.1 -p 2222`
+
 When the stack comes up, login to Kibana <http://127.0.0.1:5601> Username: `elastic` Password: `changeme`
 
 Create an index `logstash-*`
