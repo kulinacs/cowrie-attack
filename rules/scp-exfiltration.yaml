@@ -1,0 +1,13 @@
+# Exfiltrates data from the local system using scp
+name: SCP Exfiltration
+type: any
+index: logstash-*
+
+filter:
+- match:
+    message: scp -f
+
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic: "Exfiltration"
+attack_name: "Exfiltration Over Command and Control Channel"
+attack_id: "T1041"
