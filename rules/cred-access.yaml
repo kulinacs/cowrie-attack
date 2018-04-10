@@ -1,0 +1,16 @@
+# checks for credential access attempt 
+# written by Alan Padilla 
+name: View Bash History 
+type: any
+index: logstash-*
+
+
+filter:
+  - query:
+      query_string: 
+        query: "input: \"cat ~/.bash_history\""
+
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic: "Credential Access"
+attack_name: "View Bash History"
+attack_id: "T1139"
