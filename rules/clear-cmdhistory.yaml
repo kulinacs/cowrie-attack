@@ -1,0 +1,16 @@
+# Checks if there is an attempt to clear bash history
+# written by Alan Padilla 
+name: Clear CMD History
+type: any
+index: logstash-*
+
+filter:
+  - query:
+      query_string:
+        query: "input: \"rm .bash_history\""
+
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic: "Defense Evasion"
+attack_name: "Clear Command History" 
+attack_id: "T1146"
+
