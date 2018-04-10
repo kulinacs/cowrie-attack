@@ -1,0 +1,16 @@
+# checks for credential access attempt 
+# written by Alan Padilla 
+name: Sudo list Commands 
+type: any
+index: logstash-*
+
+
+filter:
+  - query:
+      query_string: 
+        query: "input: \"sudo -l\""
+
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic: "Privilege Escalation"
+attack_name: "Sudo List Commands"
+attack_id: "T1169"
