@@ -4,8 +4,9 @@ type: any
 index: logstash-*
 
 filter:
-- match:
-    message: scp -f
+  - query:
+      query_string:
+        query: "message: \"scp -f\""
 
 alert: "elastalert_modules.custom_alerts.MITREAttack"
 attack_tactic: "Exfiltration"
