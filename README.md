@@ -16,7 +16,7 @@ When the stack comes up, login to Kibana <http://127.0.0.1:5601> Username: `elas
 
 Create an index `logstash-*`
 
-Start up ElastAlert `sudo docker-compose -f alert.yaml up`
+Start up ElastAlert `sudo docker-compose -f alert.yml up`
 
 ## Testing a rule
 
@@ -36,7 +36,7 @@ Config found at `/opt/elastalert/config.yml`
 
 Run rule
 
-`python -m elastalert.test_rule --config config.yml <rule_path>`
+`python -m elastalert.test_rule --config config.yaml <rule_path>`
 
 ## MITRE Attack Matrix
 
