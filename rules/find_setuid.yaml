@@ -1,13 +1,19 @@
-# Checks for attacks thaht might enumerate the root-owned setuid files on the system
-name: Setuid Enumeration
+# Checks for basic attack that might enumerate the root-owned setuid files on the system
+name: Basic Setuid Enumeration
 type: any
 index: logstash-*
 
 filter:
-- term:
-    eventid: cowrie.command.input
-- match:
-    message: find perm 4000
+- query:
+  - bool:
+      must:
+      - match:
+          message:
+            query: find perm 4000
+            operator: and
+      filter:
+      - term:
+          eventid: cowrie.command.input
 
 alert: "elastalert_modules.custom_alerts.MITREAttack"
 attack_tactic: "Privilege Escalation"
