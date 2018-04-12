@@ -1,0 +1,20 @@
+# Checks for basic attack that might enumerate the root-owned setuid files on the system
+name: Basic File Deletion
+type: any
+index: logstash-*
+
+filter:
+- query:
+  - bool:
+      must:
+      - match:
+          message:
+            query: rm
+      filter:
+      - term:
+          eventid: cowrie.command.input
+
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic: "Defense Evasion"
+attack_name: "File Deletion"
+attack_id: "T1107"
