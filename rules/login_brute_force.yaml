@@ -1,0 +1,22 @@
+# Checks for repeated login failures for a single user. As
+# implemented, it will cause an alert every minute at maximum after
+# each sequence of 25 failed logins. For less frequent alerts, the
+# `realert` parameter may be set. 
+name: Login Brute Force
+type: frequency
+index: logstash-*
+
+num_events: 25
+timeframe:
+  hours: 1
+
+query_key: username
+
+filter:
+- term:
+    eventid: cowrie.login.failed
+
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic: "Credential Access"
+attack_name: "Brute Force"
+attack_id: "T1110"
