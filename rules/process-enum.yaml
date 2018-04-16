@@ -1,0 +1,15 @@
+# checks for process enumeration
+name: ps
+type: any
+index: logstash-*
+
+
+filter:
+- query:
+    query_string: 
+        query: "input: \"ps\""
+
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic: "Discovery"
+attack_name: "Process Discovery"
+attack_id: "T1057"
