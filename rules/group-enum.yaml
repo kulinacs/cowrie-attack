@@ -1,0 +1,15 @@
+# checks for group enumeration
+name: cat /etc/group
+type: any
+index: logstash-*
+
+
+filter:
+- query:
+    query_string: 
+        query: "input: \"cat /etc/group\""
+
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic: "Discovery"
+attack_name: "Permission Groups Discovery"
+attack_id: "T1069"
