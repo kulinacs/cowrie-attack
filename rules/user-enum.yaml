@@ -1,0 +1,15 @@
+# checks for user enumeration
+name: cat /etc/passwd
+type: any
+index: logstash-*
+
+
+filter:
+- query:
+    query_string: 
+        query: "input: \"cat /etc/passwd\""
+
+alert: "elastalert_modules.custom_alerts.MITREAttack"
+attack_tactic: "Discovery"
+attack_name: "Account Discovery"
+attack_id: "T1087"
