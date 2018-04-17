@@ -6,7 +6,7 @@ name: Login Brute Force
 type: frequency
 index: logstash-*
 
-num_events: 25
+num_events: 24
 timeframe:
   hours: 1
 
