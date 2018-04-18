@@ -1,7 +1,7 @@
 #!/bin/sh
-# Tactic: Privilege Escalation
-# Name: Setuid Enumeration
-# ID: 	T1166
+# Tactic: Credential Access
+# Name: Brute Force
+# ID: 	T1110
 # Enumerates any files with setuid permissions
 i=1
 while [ $i -le 25 ]
