@@ -2,7 +2,7 @@
 # Tactic: Credential Access
 # Name: Brute Force
 # ID: 	T1110
-# Enumerates any files with setuid permissions
+# Makes some silly guesses as to the password for the "daemon" user
 i=1
 while [ $i -le 25 ]
 do
